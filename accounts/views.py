@@ -4,6 +4,7 @@ from .forms import SignUpForm
 
 
 def signup(request):
+    '''Signs a user in'''
     if request.method == "POST":
         form = SignUpForm(request.POST)
         if form.is_valid():
