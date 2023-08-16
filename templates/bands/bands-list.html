@@ -1,0 +1,32 @@
+{% extends "includes/base.html" %}
+
+{% block title %}
+<title>Bands Dashboard</title>
+{% endblock title %}
+
+{% block content %}
+
+{% for band in object_list %}
+
+<a href="{% url 'bands:band-details' band.id %}" style="text-decoration: none; color: inherit;">
+
+    <div class="blog-entry">
+
+        <h5 class="blog-title">
+            <b>{{ band.name }}</b>
+        </h5>
+        <br>
+
+        <div>
+            <h6><b>Genre:</b> {{ band.genre }}</h6>
+            <h6><b>Region:</b> {{ band.region }}</h6>
+        </div>
+
+        <br>
+
+    </div>
+</a>
+
+{% endfor %}
+
+{% endblock content %}

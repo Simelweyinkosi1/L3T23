@@ -1,0 +1,21 @@
+{% extends 'includes/base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'css/accounts.css' %}">
+{% endblock stylesheet %}
+
+{% block content %}
+<div class="container">
+
+    <h1 class="text-center logo my-4">
+        <b>Hyperion Dev</b>
+    </h1>
+
+    {% block account %}
+    {% endblock account %}
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,36 @@
+{% extends "includes/base.html" %}
+
+{% block title %}
+<title>{{ band.name }}</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="album-container">
+
+    <h3 class="album-title"><a href="{% url 'bands:band-details' band.id %}">{{ band.name }}</a></h3>
+    <br>
+
+    <h4><b><u>Albums:</u></b></h4>
+    <hr>
+    <ul class="list-group">
+        {% for album in band.album_set.all %}
+        <li class="list-group-item list-group-item-action">
+            <a href="{% url 'bands:album-details' band.id album.id %}" class="album-link">{{ album.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <hr>
+
+    <div class="back-link-container">
+
+        <a href="{% url 'bands:bands-list' %}" class="btn btn-primary">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            Back to Bands Dashboard
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock content %}
