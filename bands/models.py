@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Band(models.Model):
+    '''Creates instance of a band'''
     name = models.CharField(max_length=100)
     genre = models.CharField(max_length=50)
     total_members = models.PositiveIntegerField()
@@ -12,6 +13,7 @@ class Band(models.Model):
 
 
 class Album(models.Model):
+    '''Creates instance of an album'''
     band = models.ForeignKey(Band, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     release_date = models.DateField()
@@ -21,6 +23,7 @@ class Album(models.Model):
 
 
 class Song(models.Model):
+    '''Creates instance of a song'''
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     duration = models.DurationField()
